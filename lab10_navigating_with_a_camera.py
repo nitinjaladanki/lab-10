@@ -153,10 +153,11 @@ def main():
         print(f"auv_heading is {auv_state['heading']}, target heading is {tgt_hdg}")
             
         if doPlots and not (frame % frame_skip):
-            plt.plot(gnext[0], gnext[1], 'go')
-            plt.plot(rnext[0], rnext[1], 'ro')
+            ax.clear()
+            ax.plot(gnext[0], gnext[1], 'go')
+            ax.plot(rnext[0], rnext[1], 'ro')
             trk = np.array(auv_track)
-            plt.plot(trk[-300:,0], trk[-300:,1], 'k')            
+            ax.plot(trk[-300:,0], trk[-300:,1], 'k')            
     
             ax.set_xlim(current_position[0]-100, current_position[0]+100)
             ax.set_ylim(current_position[1]-100, current_position[1]+100)
